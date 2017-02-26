@@ -50,6 +50,7 @@ Cell 3 loads the train/test pickle files and makes appropriate train/test featur
 Cell 4 than further one-hot encodes the train/test labels and makes those  available to the rest of the notebook.  
 Cell 5 does the actual statistical aggregate reporting.  
 Here is a summary of the data set. 
+
 ![alt text][image1]
 
 ####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
