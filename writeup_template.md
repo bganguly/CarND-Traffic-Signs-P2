@@ -68,6 +68,9 @@ The data has been run through -
 - np.mean(axis=3) - this squelches the data to 32X32 from 32x32x3
 - normalize_greyscale() - this transforms the 0-255 to 0.1-0.9 . 
 
+The np.mean() reduces a 3 element array to the average value of the array, and helps with further downstream processing.  
+The normalize_grescale is an attamept to coalesce widely spread values to a narrow band, so that the classification can be done in realistic time and so that it converges to a value with respectable accuracy.
+
 Here is an example of a traffic sign image before and after grayscaling.
 
 ![alt text][image3]
@@ -77,7 +80,7 @@ Here is an example of a traffic sign image before and after grayscaling.
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
-The code for splitting the data into training and validation sets is contained in the code cell 7 of the  notebook.  
+The code for splitting the data into training and validation sets is contained in the code cell 8 of the  notebook.  
 To cross validate my model, I randomly split the training data into a training set and validation set.  
 I did this by using sklear.train_test_split()
 
