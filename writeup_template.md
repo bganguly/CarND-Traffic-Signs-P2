@@ -22,11 +22,9 @@ The goals / steps of this project are the following:
 [image1]: ./output_for_readme/data_summary.jpg "Basic data summary"
 [image2]: ./output_for_readme/label_distribution.jpg "Label distribution"
 [image3]: ./output_for_readme/preprocess_before.jpg "Sample image before preprocessing"
-[image4]: ./output_for_readme/preprocess_after.jpg "Sample image after preprocessing"
-[image5]: ./output_for_readme/processed_sobelx_sobely_image.jpg "sobelx and sobely outputs"
-[image6]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
-[image7]: ./output_for_readme/sample_lane_line_pixels.jpg "sample_lane_line_pixels"
-[image8]: ./output_for_readme/processed_Frames_frame0006.jpg "frame006"
+[image4]: ./output_for_readme/preprocess_summary.jpg "Sample image pixel summary after preprocessing"
+[image5]: ./output_for_readme/preprocess_after.jpg "Sample image after preprocessing"
+
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -68,11 +66,14 @@ Here is an exploratory visualization of the data set.
 The code for this step is contained in the code cell 7 of the  notebook.  
 The data has been run through -  
 - np.mean(axis=3) - this squelches the data to 32X32 from 32x32x3
-- normalize_greyscale() - this transforms the 0-255 to 0.1-0.9
+- normalize_greyscale() - this transforms the 0-255 to 0.1-0.9 . 
+
 Here is an example of a traffic sign image before and after grayscaling.
 
 ![alt text][image3]
 ![alt text][image4]
+![alt text][image5]
+
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
