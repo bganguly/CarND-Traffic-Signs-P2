@@ -19,14 +19,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image1]: ./output_for_readme/data_summary.jpg "Basic data summary"
+[image2]: ./output_for_readme/label_distribution.jpg "Label distribution"
+[image3]: ./output_for_readme/sample_distorted_undistorted_image.jpg "Sample image before/after distortion correction"
+[image4]: ./output_for_readme/processed_combined_binary_birdseye_image.jpg "binary and birds eye view outputs"
+[image5]: ./output_for_readme/processed_sobelx_sobely_image.jpg "sobelx and sobely outputs"
+[image6]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
+[image7]: ./output_for_readme/sample_lane_line_pixels.jpg "sample_lane_line_pixels"
+[image8]: ./output_for_readme/processed_Frames_frame0006.jpg "frame006"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -36,29 +36,28 @@ The goals / steps of this project are the following:
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+This is the required README.  
+All code cells mentioned here are in the IPython notebook located in [Traffic_Signs_Recognition.ipynb](https://github.com/bganguly/CarND-Traffic-Signs-P2/blob/master/Traffic_Signs_Recognition.ipynb).  
+For brevity, i will just refer to the IPython notebook as simply 'notebook'
 
 ###Data Set Summary & Exploration
 
 ####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-The code for this step is contained in the second code cell of the IPython notebook.  
+The code for this step is contained in the code cells 3,4 and 5 of the  notebook.
 
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
-
-* The size of training set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+Cell 3 loads the train/test pickle files and makes appropriate train/test features/labels available to the rest of the notebook.  
+Cell 4 than further one-hot encodes the train/test labels and makes those  available to the rest of the notebook.
+Cell 5 does the actual statistical aggregate reporting.
+Here is a summary of the data set. 
+![alt text][image1]
 
 ####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
-The code for this step is contained in the third code cell of the IPython notebook.  
+The code for this step is contained in the code cell 6 of the  notebook.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
-
-![alt text][image1]
+Here is an exploratory visualization of the data set. 
+![alt text][image2]
 
 ###Design and Test a Model Architecture
 
