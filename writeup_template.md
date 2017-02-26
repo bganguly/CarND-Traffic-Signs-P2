@@ -24,6 +24,12 @@ The goals / steps of this project are the following:
 [image3]: ./output_for_readme/preprocess_before.jpg "Sample image before preprocessing"
 [image4]: ./output_for_readme/preprocess_summary.jpg "Sample image pixel summary after preprocessing"
 [image5]: ./output_for_readme/preprocess_after.jpg "Sample image after preprocessing"
+[image6]: ./output_for_readme/test_run_results.jpg "hyperparameter tuning"
+[image7]: ./images_from_web/no_entry_cropped.jpg "no entry"
+[image8]: ./images_from_web/pedestrians_cropped.jpg "pedestrians "
+[image9]: ./images_from_web/right_of_way_cropped.jpg "right of way"
+[image10]: ./images_from_web/road_work_cropped.jpg "road work"
+[image11]: ./images_from_web/speed_limit_60_cropped.jpg "speed limit 60"
 
 
 ## Rubric Points
@@ -89,93 +95,82 @@ The number of test images did not change.
 
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-The code for my final model is located in the seventh cell of the ipython notebook. 
-
-My final model consisted of the following layers:
-
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
-
+The code for the final model architecture is contained in the code cell 9 of the  notebook.  
 
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-The code for training the model is located in the eigth cell of the ipython notebook. 
-
-To train the model, I used an ....
+The code for the final model architecture is contained in the code cell 9 and 12 of the  notebook.  
 
 ####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
+I started with default hyperparameters of 30 epochs/64 as batch_size and x/=255 as the data sqleching. Then over a series of test varied these. Noted the validation accuracy/loss as well as the test accuracy/loss. The goal is to get the highest accuracy / least loss possible.
+Results are below 
+- https://drive.google.com/file/d/0B9vOjB65N3QkOUhfMElydUZ0MEE/view?usp=sharing . 
+A screenshot of the various parameter tuned is in cell 10 of the  notebook.   
+![alt text][image6]
 
-My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
 
 ###Test a Model on New Images
 
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Five random German traffic signs were collected online and roughly cropped to be about square. each image was a jpeg. Then code was written to resize these to be 32x32x3 each.
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+Here are five German traffic signs that I found on the web, and are listed in cell 14 of the notebook:
 
-The first image might be difficult to classify because ...
+![alt text][image7] 
+![alt text][image8]
+![alt text][image9]
+![alt text][image10]
+![alt text][image11]
+
+There is an image of a pedestrian walking that might not match exactly  in the sample set supplied, so maybe that would be off. All other are pretty crisp to start with and should generally classified to the 85% accuracy or so reported by the test set.
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
+The code for the predictions is contained in the code cell 15 and 16 of the  notebook.  
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+['images_from_web/no_entry_cropped.jpg', 'images_from_web/speed_limit_60_cropped.jpg', 'images_from_web/right_of_way_cropped.jpg', 'images_from_web/pedestrians_cropped.jpg', 'images_from_web/road_work_cropped.jpg']
+[[ 0.385  0.351  0.051  0.041  0.04 ]
+ [ 0.571  0.129  0.066  0.035  0.034]
+ [ 0.505  0.093  0.065  0.062  0.047]
+ [ 0.221  0.163  0.162  0.142  0.107]
+ [ 0.84   0.097  0.016  0.013  0.01 ]]
+[[20 21 33 41 22]
+ [16 41 38 22 12]
+ [41 22 26 33 16]
+ [18 16 33  8 22]
+ [22 16 38 21 42]]
 
+Based on the above there appears to be a rather poor classification of images obtained from the web.
+The above indicates that the following was inferred (using signnames.csv)-
+- 'no_entry_cropped.jpg'-> 20:General Caution
+- 'speed_limit_60_cropped.jpg'-> 16:Vehicles over 3.5 metric tons prohibited
+- 'right_of_way_cropped.jpg'-> 41:End of no passing
+- 'pedestrians_cropped.jpg'-> 18:General Caution 
+- 'road_work_cropped.jpg'-> 22:Bumpy Road  
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+So, we have essentially a 0% accuracy on the images obtained from the web, as opposed to the earlier obtained 85.6% accuracy on the validation set.
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for the prediction certainty is in the code cell 17 of the  notebook.  
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+[[ 0.367  0.21   0.155  0.062  0.059]
+ [ 0.374  0.271  0.091  0.07   0.063]
+ [ 0.297  0.287  0.102  0.079  0.069]
+ ..., 
+ [ 0.753  0.081  0.058  0.044  0.019]
+ [ 0.738  0.078  0.073  0.04   0.017]
+ [ 0.506  0.24   0.067  0.047  0.04 ]]
+[[28 16 29 20 15]
+ [16 28 29 15 42]
+ [16 28 29 15 42]
+ ..., 
+ [16 15 28 42 29]
+ [16 15 29 42 28]
+ [16 15 28 42  9]]
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
+Based on the above there appears to be a rather poor **certainty** of predictions, as the probablities are almost uniformly distributed.
