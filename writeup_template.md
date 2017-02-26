@@ -21,8 +21,8 @@ The goals / steps of this project are the following:
 
 [image1]: ./output_for_readme/data_summary.jpg "Basic data summary"
 [image2]: ./output_for_readme/label_distribution.jpg "Label distribution"
-[image3]: ./output_for_readme/sample_distorted_undistorted_image.jpg "Sample image before/after distortion correction"
-[image4]: ./output_for_readme/processed_combined_binary_birdseye_image.jpg "binary and birds eye view outputs"
+[image3]: ./output_for_readme/preprocess_before.jpg "Sample image before preprocessing"
+[image4]: ./output_for_readme/preprocess_after.jpg "Sample image after preprocessing"
 [image5]: ./output_for_readme/processed_sobelx_sobely_image.jpg "sobelx and sobely outputs"
 [image6]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
 [image7]: ./output_for_readme/sample_lane_line_pixels.jpg "sample_lane_line_pixels"
@@ -47,14 +47,15 @@ For brevity, i will just refer to the IPython notebook as simply 'notebook'
 The code for this step is contained in the code cells 3,4 and 5 of the  notebook.
 
 Cell 3 loads the train/test pickle files and makes appropriate train/test features/labels available to the rest of the notebook.  
-Cell 4 than further one-hot encodes the train/test labels and makes those  available to the rest of the notebook.
+Cell 4 than further one-hot encodes the train/test labels and makes those  available to the rest of the notebook.  
 Cell 5 does the actual statistical aggregate reporting.
 Here is a summary of the data set. 
 ![alt text][image1]
 
 ####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
-The code for this step is contained in the code cell 6 of the  notebook.
+The code for this step is contained in the code cell 6 of the  notebook.  
+We calculate and then Plot the number of features corresponding to a given label.
 
 Here is an exploratory visualization of the data set. 
 ![alt text][image2]
@@ -63,13 +64,13 @@ Here is an exploratory visualization of the data set.
 
 ####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
-The code for this step is contained in the fourth code cell of the IPython notebook.
-
-As a first step, I decided to convert the images to grayscale because ...
+The code for this step is contained in the code cell 7 of the  notebook.
 
 Here is an example of a traffic sign image before and after grayscaling.
 
-![alt text][image2]
+![alt text][image3]
+![alt text][image4]
+
 
 As a last step, I normalized the image data because ...
 
