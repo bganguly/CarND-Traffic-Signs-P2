@@ -48,7 +48,7 @@ The code for this step is contained in the code cells 3,4 and 5 of the  notebook
 
 Cell 3 loads the train/test pickle files and makes appropriate train/test features/labels available to the rest of the notebook.  
 Cell 4 than further one-hot encodes the train/test labels and makes those  available to the rest of the notebook.  
-Cell 5 does the actual statistical aggregate reporting.
+Cell 5 does the actual statistical aggregate reporting.  
 Here is a summary of the data set. 
 ![alt text][image1]
 
@@ -64,32 +64,23 @@ Here is an exploratory visualization of the data set.
 
 ####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
-The code for this step is contained in the code cell 7 of the  notebook.
-
+The code for this step is contained in the code cell 7 of the  notebook.  
+The data has been run through -  
+- np.mean(axis=3) - this squelches the data to 32X32 from 32x32x3
+- normalize_greyscale() - this transforms the 0-255 to 0.1-0.9
 Here is an example of a traffic sign image before and after grayscaling.
 
 ![alt text][image3]
 ![alt text][image4]
 
-
-As a last step, I normalized the image data because ...
-
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
-The code for splitting the data into training and validation sets is contained in the fifth code cell of the IPython notebook.  
+The code for splitting the data into training and validation sets is contained in the code cell 7 of the  notebook.  
+To cross validate my model, I randomly split the training data into a training set and validation set.  
+I did this by using sklear.train_test_split()
 
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
-
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
-
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
+My final training set had 90%  of originl training images and My validation set had 10% of images.  
+The number of test images did not change.  
 
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
